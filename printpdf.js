@@ -23,7 +23,7 @@ export default async (html, isOne) => {
 
   canvas.width = contentWidth * scale // 将画布宽&&高放大两倍
   canvas.height = contentHeight * scale
-  canvas.getContext('2d').scale(1, 1)
+  canvas.getContext('2d')
 
   let opts = {
     scale: scale,
