@@ -1,5 +1,5 @@
 # Mycomponents
-## 放一些vue组件工具类
+## 放一些vue组件及工具类 vue+element-ui
 
 时间轴  
 ![](imgs/TimeLine.png)
