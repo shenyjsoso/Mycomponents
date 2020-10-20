@@ -10,12 +10,16 @@
  * @param isOne { Boolean }  是否为单页 默认 否(false)
  * @return 文件 {pdf格式}
  */
-
+/*
+引用后使用方法
+import getpdf from '@/assets/printpdf.js'
+getpdf(this.$refs.report,true,`${this.formatdate}${this.search.organName}`)
+*/
 'use strict'
-import * as jsPDF from 'jspdf'
+import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 
-export default async (html, isOne) => {
+export default async (html, isOne,pdfname) => {
   let contentWidth = html.clientWidth // 获得该容器的宽
   let contentHeight = html.clientHeight // 获得该容器的高
   let canvas = document.createElement('canvas')
@@ -42,6 +46,7 @@ export default async (html, isOne) => {
       console.log("单页");
       console.log(contentWidth, 'contentWidth')
       console.log(contentHeight, 'contentHeight')
+      
 
       // jspdf.js 插件对单页面的最大宽高限制 为 14400
       let limit = 14400
@@ -96,7 +101,6 @@ export default async (html, isOne) => {
       }
     }
     console.log("pdf",pdf);
-    
-    return pdf;  
+    pdf.save(`${pdfname}.pdf`)
   })
 }
